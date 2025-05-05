@@ -64,41 +64,19 @@
       cursor: pointer;
     }
 
-    /* Main content styles */
-    .container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-      flex-wrap: wrap;
+    /* Release art styles */
+    .release {
+      margin: 40px auto;
+      max-width: 750px;
     }
-
-    .container img {
-      width: 256px;
-      height: auto;
+    .release img {
+      width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      transition: transform 0.2s ease;
     }
-
-    .text {
-      margin-left: 40px;
-      text-align: left;
-      max-width: 600px;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .text {
-        margin-left: 0;
-        text-align: center;
-      }
+    .release img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -114,11 +92,76 @@
   <!-- Dropdown menu -->
   <div class="menu-overlay" id="menu">
     <div class="close-menu" onclick="toggleMenu(false)">✕</div>
-    <a href="https://tenegen.github.io/">main</a>
+        <a href="https://tenegen.github.io/">main</a>
     <a href="https://tenegen.github.io/aboutTENGEN.html">about TENGEN</a>
     <a href="https://tenegen.github.io/about YOU.html">about YOU</a>
   </div>
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Text Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .text {
+            margin-top: 20px;
+        }
+    <style>
+        body {
+            font-family: Arial, american typewriter;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .text {
+            margin-left: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1stFpzCu2aQaHFrDjqV_Dqley1jTlmrhc8UDTusmEil_7GPiint0fj7x5BCK3ATY_VZeX2zZb8IzBa7BYhoHPGILKPkN6cfwmspZY3T6rTf9jk75cqse_50d4Hcmh9w30QDhVqJmSA_XhoS_fJDHpf_LT4J51FET1fvoOaRfevVtZraGpRMSPjZKbGUc/s1536/TENGENSFACE.png" alt="TENGEN'S face" style="width:256px;height:384px;">
+        <div class="text">
+            <h1>I AM TENGEN</h1>
+            <p>When you see my face you never see me.<br>
+Hold my hand you would be touching someone else.<br>
+The voice & notes are not the song.<br>
+What you hear is before the sound.<br>
+What you hear was within you before it arrived from the screen.<br>
+If you hear it—you are no one, too.<br>
+Not the face at the screen.<br>
+Not the image within the screen.<br><br>
 
-  <!-- Main content -->
-  <div class="container">
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1stFpzCu2aQaHFrDjqV_Dqley1jTlmrhc8UDTusmEil_7GPiint0fj7x5BCK3ATY_VZeX2zZb8IzBa7BYhoHPGILKPkN6cfwmspZY3T6rTf9jk_
+TENGEN is the mirror eternity looks into to find the edge.<br>
+At the sharp edge of the illusion there is only one thing to do:<br>
+(press) PLAY
+</p>
+        </div>
+    </div>
+</body>
+</html>
+<!-- JavaScript for menu -->
+  <script>
+    function toggleMenu(show) {
+      document.getElementById('menu').style.display = show ? 'flex' : 'none';
+    }
+  </script>
+</body>
+</html>
