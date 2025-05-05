@@ -46,6 +46,127 @@
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWHyMyQIzFiGGdeS-dx21LG02lxptnDcdmQXkMdv_y42pYwSUZwUxsvYQJOuHDSVOxJP7N93XyAabFLggg3tUaec1O7ULvcEwuZ8siQyhG5IA1-6YIbvdegzW1aBAVkgUxnKw29Ru4QXe0XJ653ZDjZUv3dBQ_k1rscmADhIKF-0bMvTLoVeYsXfgFY-s/s1284/IMG_2375.jpeg" alt="Escape" width="750" height="750">
       </a>
     </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TENGEN</title>
+  <style>
+    body {
+      margin: 0;
+      background: white;
+      font-family: sans-serif;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .menu-button {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      color: white;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .overlay a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .release {
+      display: block;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .release img {
+      max-width: 90%;
+      height: auto;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">TENGEN</div>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Your release images go here -->
+  <div class="release">
+    <a href="https://open.spotify.com/" target="_blank">
+      <img src="https://via.placeholder.com/600x600.png?text=Album+1" alt="Release 1"/>
+    </a>
+  </div>
+
+  <div class="release">
+    <a href="https://open.spotify.com/" target="_blank">
+      <img src="https://via.placeholder.com/600x600.png?text=Album+2" alt="Release 2"/>
+    </a>
+  </div>
+
+  <!-- Overlay Menu -->
+  <div class="overlay" id="menuOverlay">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <a href="/">Home</a>
+    <a href="https://open.spotify.com/artist/yourartistid" target="_blank">Spotify</a>
+    <a href="https://tengenmusic.com" target="_blank">Main Site</a>
+    <a href="mailto:contact@tengenmusic.com">Contact</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menuOverlay').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
+
 
 
 
