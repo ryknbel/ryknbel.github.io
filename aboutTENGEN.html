@@ -64,19 +64,41 @@
       cursor: pointer;
     }
 
-    /* Release art styles */
-    .release {
-      margin: 40px auto;
-      max-width: 750px;
+    /* Main content styles */
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      flex-wrap: wrap;
     }
-    .release img {
-      width: 100%;
+
+    .container img {
+      width: 256px;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
+      margin-bottom: 20px;
     }
-    .release img:hover {
-      transform: scale(1.05);
+
+    .text {
+      margin-left: 40px;
+      text-align: left;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .text {
+        margin-left: 0;
+        text-align: center;
+      }
     }
   </style>
 </head>
