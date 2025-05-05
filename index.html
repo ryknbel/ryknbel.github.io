@@ -13,20 +13,61 @@
       padding: 0;
       text-align: center;
     }
-    h1 {
-      font-size: 3em;
-      margin: 40px 0 20px;
-      letter-spacing: 0.1em;
-    }
-    .releases {
+
+    /* Hamburger icon */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1001;
+      cursor: pointer;
+      width: 30px;
+      height: 22px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 40px;
+      flex-direction: column;
+      justify-content: space-between;
     }
+    .menu-icon span {
+      display: block;
+      height: 4px;
+      background: black;
+      border-radius: 2px;
+    }
+
+    /* Fullscreen menu overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      color: white;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .menu-overlay a {
+      color: white;
+      font-size: 2em;
+      text-decoration: none;
+      margin: 15px 0;
+    }
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    /* Release art styles */
     .release {
-      max-width: 200px;
+      margin: 40px auto;
+      max-width: 750px;
     }
     .release img {
       width: 100%;
@@ -37,36 +78,51 @@
     .release img:hover {
       transform: scale(1.05);
     }
-    .release a {
-      text-decoration: none;
-      color: black;
-    }
   </style>
 </head>
 <body>
-  <h1>TENGEN</h1>
-   <div class="eYe Dragon">
-      <a href="https://www.youtube.com/watch?v=lGCf-93CJh4&t=5s" target="_blank">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWJFhKpMppc_Jccbn5xSEOcLTK6K92Z8zikVhMdoWLP4Y1qn-EVZLPtK512p9mm-HKqJ1t4xdZntgyWQ54SoPrtup2ds1EhyqIkC4Nk5FvZ9pFULj0B7Wb3NJA9gTH_4hdPCIY3KwMHEWrYr5Ss6u5RcWlb7wVDVEdbX5eMX42B1k7I5_j2xtCl83hIRE/s3000/IMG_2422%203.jpg" alt="eYe Dragon" width="750" height="750">
-      </a>
-    </div>
 
-    <div class="'88 Summer (lyrical)">
-      <a href="https://open.spotify.com/" target="_blank">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtY8VuT_WvC1pgUb_jDYvDhrcYGiOdB7gy4ZnNlGy8M19HU7xf_Mu3SDJgJlyMwbnzyEP9GVxvqC6V7ssWaRlTDhjPHmCO9HYU0TF7DBtfa6ESAd3qY8Tw3rNJnoBmwSoPzpJ6jmwV2ZmnIMyQuTJC1cl3_CSA-m3H-HQJYmm1eINOxlAB4AKv_T8z3-8/s1024/IMG_2441.jpeg" alt="'88 Summer (lyrical)" width="750" height="750">
-      </a>
-    </div>
-
-    <div class="Escape">
-      <a href="https://www.youtube.com/watch?v=lGCf-93CJh4&t=5s" target="_blank">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWHyMyQIzFiGGdeS-dx21LG02lxptnDcdmQXkMdv_y42pYwSUZwUxsvYQJOuHDSVOxJP7N93XyAabFLggg3tUaec1O7ULvcEwuZ8siQyhG5IA1-6YIbvdegzW1aBAVkgUxnKw29Ru4QXe0XJ653ZDjZUv3dBQ_k1rscmADhIKF-0bMvTLoVeYsXfgFY-s/s1284/IMG_2375.jpeg" alt="Escape" width="750" height="750">
-      </a>
-    </div>
-
-
-    <!-- /block -->
+  <!-- Hamburger menu button -->
+  <div class="menu-icon" onclick="toggleMenu(true)">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
+  <!-- Dropdown menu -->
+  <div class="menu-overlay" id="menu">
+    <div class="close-menu" onclick="toggleMenu(false)">✕</div>
+    <a href="#release1">eYe Dragon</a>
+    <a href="#release2">'88 Summer</a>
+    <a href="#release3">Escape</a>
+    <a href="https://open.spotify.com/" target="_blank">Spotify</a>
+    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+  </div>
+
+  <!-- Releases -->
+  <div class="release" id="release1">
+    <a href="https://www.youtube.com/watch?v=lGCf-93CJh4&t=5s" target="_blank">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWJFhKpMppc_Jccbn5xSEOcLTK6K92Z8zikVhMdoWLP4Y1qn-EVZLPtK512p9mm-HKqJ1t4xdZntgyWQ54SoPrtup2ds1EhyqIkC4Nk5FvZ9pFULj0B7Wb3NJA9gTH_4hdPCIY3KwMHEWrYr5Ss6u5RcWlb7wVDVEdbX5eMX42B1k7I5_j2xtCl83hIRE/s3000/IMG_2422%203.jpg" alt="eYe Dragon">
+    </a>
+  </div>
+
+  <div class="release" id="release2">
+    <a href="https://open.spotify.com/" target="_blank">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtY8VuT_WvC1pgUb_jDYvDhrcYGiOdB7gy4ZnNlGy8M19HU7xf_Mu3SDJgJlyMwbnzyEP9GVxvqC6V7ssWaRlTDhjPHmCO9HYU0TF7DBtfa6ESAd3qY8Tw3rNJnoBmwSoPzpJ6jmwV2ZmnIMyQuTJC1cl3_CSA-m3H-HQJYmm1eINOxlAB4AKv_T8z3-8/s1024/IMG_2441.jpeg" alt="'88 Summer (lyrical)">
+    </a>
+  </div>
+
+  <div class="release" id="release3">
+    <a href="https://www.youtube.com/watch?v=lGCf-93CJh4&t=5s" target="_blank">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWHyMyQIzFiGGdeS-dx21LG02lxptnDcdmQXkMdv_y42pYwSUZwUxsvYQJOuHDSVOxJP7N93XyAabFLggg3tUaec1O7ULvcEwuZ8siQyhG5IA1-6YIbvdegzW1aBAVkgUxnKw29Ru4QXe0XJ653ZDjZUv3dBQ_k1rscmADhIKF-0bMvTLoVeYsXfgFY-s/s1284/IMG_2375.jpeg" alt="Escape">
+    </a>
+  </div>
+
+  <!-- JavaScript for menu -->
+  <script>
+    function toggleMenu(show) {
+      document.getElementById('menu').style.display = show ? 'flex' : 'none';
+    }
+  </script>
 </body>
 </html>
-
-
