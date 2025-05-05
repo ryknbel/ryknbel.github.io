@@ -102,57 +102,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Webpage</title>
+    <title>Image and Text Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #ffffff;
-            color: white;
-            padding: 10px 0;
+            margin: 20px;
             text-align: center;
         }
-        .content {
-            padding: 20px;
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .text {
+            margin-top: 20px;
+        }
+    <style>
+        body {
+            font-family: Arial, american typewriter;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .text {
+            margin-left: 20px;
             text-align: left;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #ffffff;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .content {
-            padding: 20px;
-            text-align: left;
-        }
-    </style>
-</head>
-<body>
-    <header>
+    <div class="container">
         <h1>about YOU</h1>
-    </header>
-    <div class="content">
-        <p>you are the brightest light.
+            <p>you are the brightest light.<br>
 
 Not just lighting up this room, or this space.<br>
 You are the brightest light in the world, in this entire creation.<br>
