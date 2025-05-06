@@ -100,20 +100,24 @@
         text-align: center;
       }
     }
-.release {
-    margin-top: 100px; /* Pushes releases below menu icon */
-    display: flex;
-    justify-content: center;
-  }
+.releases {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
 
-  .release img {
-    width: 100%;
-    max-width: 750px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-  }
+.release {
+  flex: 0 1 300px; /* This allows 2-3 per row depending on screen */
+}
+
+.release img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
     @media (max-width: 768px) {
     .menu-icon {
       top: 10px;
@@ -146,13 +150,14 @@
     </div>
 
   <!-- Releases -->
-  <div class="release" id="release1">
+  <div class="releases">
+  <div class="release">
     <a href="https://open.spotify.com/album/4a30BWapAmfsJGin78mnBc" target="_blank">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWJFhKpMppc_Jccbn5xSEOcLTK6K92Z8zikVhMdoWLP4Y1qn-EVZLPtK512p9mm-HKqJ1t4xdZntgyWQ54SoPrtup2ds1EhyqIkC4Nk5FvZ9pFULj0B7Wb3NJA9gTH_4hdPCIY3KwMHEWrYr5Ss6u5RcWlb7wVDVEdbX5eMX42B1k7I5_j2xtCl83hIRE/s3000/IMG_2422%203.jpg" alt="eYe Dragon">
     </a>
   </div>
 
-  <div class="release" id="release2">
+  <div class="release">
     <a href="https://open.spotify.com/track/4e6AcV7P9gCYVjCZFg2ckP" target="_blank">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtY8VuT_WvC1pgUb_jDYvDhrcYGiOdB7gy4ZnNlGy8M19HU7xf_Mu3SDJgJlyMwbnzyEP9GVxvqC6V7ssWaRlTDhjPHmCO9HYU0TF7DBtfa6ESAd3qY8Tw3rNJnoBmwSoPzpJ6jmwV2ZmnIMyQuTJC1cl3_CSA-m3H-HQJYmm1eINOxlAB4AKv_T8z3-8/s1024/IMG_2441.jpeg" alt="'88 Summer (lyrical)">
     </a>
