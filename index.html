@@ -122,18 +122,25 @@
   justify-content: center;
 }
 
-.hero-image {
+.hero-wrapper {
   display: flex;
-  justify-content: center;
-  margin: 100px auto 5 auto; /* space from hamburger, remove extra below */
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px; /* pushes everything down from the top */
+}
+
+.hero-image {
+  margin-top: 20px; /* space between hamburger and image */
 }
 
 .hero-image img {
   width: 250px;
+  display: block;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: block;
+  margin: 0 auto;
 }
+
 
 
 
@@ -160,16 +167,17 @@
   </div>
 
   <!-- Dropdown menu -->
-  <div class="menu-overlay" id="menu">
-    <div class="close-menu" onclick="toggleMenu(false)">✕</div>
-        <a href="https://ryknbel.github.io/">main</a>
-    <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W?si=DfAWkLbVSm6sZphMNgwqcg"target="_blank" rel="noopener noreferrer">spotify</a>
-    <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw"target="_blank" rel="noopener noreferrer">youtube chevelle</a>
-    </div>
-     <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W?si=DfAWkLbVSm6sZphMNgwqcg" target="_blank" class="hero-image">
-  <img src="https://ryknbel.github.io/albumnevend3IMAGE.png" alt="no. 1 instrumental">
-</a>
-  <div class="container">
+ <div class="hero-wrapper">
+  <div class="menu-icon" onclick="toggleMenu(true)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" target="_blank" class="hero-image">
+    <img src="https://ryknbel.github.io/albumnevend3IMAGE.png" alt="no. 1 instrumental" />
+  </a>
+</div>
 
        <div class="text">
       <h1>I AM Rȳknbĕl</h1>
