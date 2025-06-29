@@ -14,7 +14,7 @@
       padding: 0;
       text-align: center;
     }
-
+    
     /* Hamburger icon */
     .menu-icon {
       position: fixed;
@@ -166,23 +166,19 @@ form img[alt=""] {
 <body>
 
   <!-- Hamburger menu button -->
+  <div class="hero-wrapper">
   <div class="menu-icon" onclick="toggleMenu(true)">
     <span></span>
     <span></span>
     <span></span>
   </div>
+<div class="menu-overlay" id="menu">
+  <div class="close-menu" onclick="toggleMenu(false)">✕</div>
+  <a href="https://ryknbel.github.io/">main</a>
+  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" target="_blank">spotify</a>
+  <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw" target="_blank">youtube chevelle</a>
+</div>
 
-  <!-- Dropdown menu -->
- <div class="hero-wrapper">
-  <div class="menu-icon" onclick="toggleMenu(true)">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" target="_blank" class="hero-image">
-    <img src="https://ryknbel.github.io/albumnevend3IMAGE.png" alt="no. 1 instrumental" />
-  </a>
 </div>
 
 <div class="container">
