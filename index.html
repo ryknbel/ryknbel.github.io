@@ -71,7 +71,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 40px 20px;
+      padding: 10px 20px 40px 20px;
       max-width: 1000px;
       margin: auto;
       
@@ -111,7 +111,6 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-}
 
 .release {
   flex: 0 1 300px; /* This allows 2-3 per row depending on screen */
@@ -123,20 +122,19 @@
   justify-content: center;
 }
 
-.hero-image {
-  display: block;
-  margin: 120px auto 20px auto; /* top spacing clears the menu, auto centers */
-  width: fit-content;
-  text-align: center;
+hero-image {
+  display: flex;
+  justify-content: center;
+  margin: 100px auto 10 auto; /* space from hamburger, remove extra below */
 }
 
 .hero-image img {
   width: 250px;
-  display: block;
-  margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
 }
+
 
 
     @media (max-width: 768px) {
