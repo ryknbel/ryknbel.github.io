@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Art Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .art-item {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .art-item img {
+      width: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .art-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 15px 0 10px;
+    }
+
+    .stripe-link {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 18px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .stripe-link:hover {
+      background: #444;
+    }
+
+    .description {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95em;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: #0077cc;
+      cursor: pointer;
+      font-size: 0.95em;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        padding: 20px;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align:center; padding:20px 0;">Virtual Art Gallery</h1>
+
+  <div class="gallery">
+
+    <!-- Example Art Item -->
+    <div class="art-item">
+      <a href="https://buy.stripe.com/test_stripe_link_here" target="_blank">
+        <img src="https://ryknbel.com/IMG_4208.jpeg" alt="Artwork 1">
+      </a>
+      <div class="art-title">Face Fears</div>
+      <a class="stripe-link" href="https://buy.stripe.com/test_stripe_link_here" target="_blank">Buy with Stripe</a>
+      <button class="toggle-btn" onclick="toggleDescription(this)">Show Description</button>
+      <div class="description">
+        This is an original 8x10 ink drawing. One of a kind piece created in 2025. Shipped flat and signed.
+      </div>
+    </div>
+
+    <!-- Duplicate more .art-item blocks for additional artwork -->
+
+  </div>
+
+  <script>
+    function toggleDescription(button) {
+      const desc = button.nextElementSibling;
+      if (desc.style.display === "block") {
+        desc.style.display = "none";
+        button.textContent = "Show Description";
+      } else {
+        desc.style.display = "block";
+        button.textContent = "Hide Description";
+      }
+    }
+  </script>
+
+</body>
+</html>
