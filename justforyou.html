@@ -161,17 +161,14 @@
 
   </section>
 
-  <script>
-    function toggleDescription(button) {
-      const desc = button.nextElementSibling;
-      if (desc.style.display === "block") {
-        desc.style.display = "none";
-        button.textContent = "more";
-      } else {
-        desc.style.display = "block";
-        button.textContent = "less";
-      }
-    }
+ <script>
+    // Toggle dropdowns
+    document.querySelectorAll('.more').forEach(button => {
+      button.addEventListener('click', () => {
+        const dropdown = button.nextElementSibling;
+        dropdown.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
