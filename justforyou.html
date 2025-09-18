@@ -123,22 +123,22 @@
     <div class="tile">
       <img src="https://ryknbel.com/IMG_4208.jpeg" alt="Artwork 1">
       <div class="title">Face Fears</div>
-      <span class="more">More</span>
+      <span class="more">more</span>
       <div class="dropdown">
         <p>This is an original 8x10, unfinished ink drawing. No repreductions will be made.<br>send me your info and I'll send you my drawing</p>
 
         <!-- Order Form -->
         <form action="https://formspree.io/f/yourformid" method="POST">
           <!-- hidden artwork title -->
-          <input type="hidden" name="artwork" value="Drawing Title One">
+          <input type="hidden" name="artwork" value="Face Fears">
 
-          <label for="name">Face Fears</label>
+          <label for="name">name</label>
           <input type="text" name="name" required>
 
-          <label for="email">Email</label>
+          <label for="email">email</label>u
           <input type="email" name="email" required>
 
-          <label for="address">Shipping Address</label>
+          <label for="address">shipping address</label>
           <textarea name="address" required></textarea>
 
           <div class="checkbox">
@@ -162,13 +162,17 @@
   </section>
 
   <script>
-    // Toggle dropdowns
-    document.querySelectorAll('.more').forEach(button => {
-      button.addEventListener('click', () => {
-        const dropdown = button.nextElementSibling;
-        dropdown.classList.toggle('active');
-      });
-    });
+    function toggleDescription(button) {
+      const desc = button.nextElementSibling;
+      if (desc.style.display === "block") {
+        desc.style.display = "none";
+        button.textContent = "more";
+      } else {
+        desc.style.display = "block";
+        button.textContent = "less";
+      }
+    }
   </script>
 </body>
 </html>
+
