@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+      color: #222;
+    }
 
+    /* Header */
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .tile {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    .tile img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .title {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .more {
+      color: #0077cc;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .dropdown {
+      display: none;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .dropdown.active {
+      display: block;
+    }
+
+    /* Form styling */
+    form {
+      margin-top: 15px;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0 2px;
+      font-size: 0.9em;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 1em;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    button {
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="your-header-image.jpg" alt="Header Image">
+  </header>
+
+  <!-- Gallery -->
+  <section class="gallery">
+
+    <!-- Example Tile -->
+    <div class="tile">
+      <img src="art1.jpg" alt="Artwork 1">
+      <div class="title">Drawing Title One</div>
+      <span class="more">More</span>
+      <div class="dropdown">
+        <p>This is the description for Drawing Title One.</p>
+
+        <!-- Order Form -->
+        <form action="https://formspree.io/f/yourformid" method="POST">
+          <!-- hidden artwork title -->
+          <input type="hidden" name="artwork" value="Drawing Title One">
+
+          <label for="name">Name</label>
+          <input type="text" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" name="email" required>
+
+          <label for="address">Shipping Address</label>
+          <textarea name="address" required></textarea>
+
+          <div class="checkbox">
+            <input type="checkbox" name="human" required>
+            <label>I am human</label>
+          </div>
+
+          <div class="checkbox">
+            <input type="checkbox" name="personal_delivery" value="Yes">
+            <label>Personal delivery $7k</label>
+          </div>
+
+          <button type="submit">Send Request</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Duplicate more tiles below -->
+    <!-- Change image src, title, description, hidden input value -->
+
+  </section>
+
+  <script>
+    // Toggle dropdowns
+    document.querySelectorAll('.more').forEach(button => {
+      button.addEventListener('click', () => {
+        const dropdown = button.nextElementSibling;
+        dropdown.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
