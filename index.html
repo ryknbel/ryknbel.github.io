@@ -214,8 +214,8 @@
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
 
-      <label>What is 2 + 3?</label>
-      <input type="text" name="captcha" pattern="5" required placeholder="Enter the answer">
+      <!-- Official FormSubmit CAPTCHA -->
+      <input type="hidden" name="_captcha" value="true">
 
       <!-- Honeypot field -->
       <input type="text" name="_honey" style="display:none">
@@ -234,6 +234,35 @@
 </div>
 
 <script>
+  function toggleDescription(titleEl) {
+    const desc = titleEl.nextElementSibling;
+    if (desc.style.display === "block") {
+      desc.style.display = "none";
+    } else {
+      desc.style.display = "block";
+    }
+  }
+
+  // Handle form submission
+  const form = document.getElementById("contact-form");
+  const thankYou = document.getElementById("thank-you");
+  const contactTitle = document.getElementById("contact-title");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // stop redirect
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+    }).then(response => {
+      form.style.display = "none";       // hide form
+      thankYou.style.display = "block";  // show thank-you
+      contactTitle.style.cursor = "default"; // not clickable anymore
+    }).catch(error => {
+      alert("Something went wrong. Please try again!");
+    });
+  });
+</script>
   function toggleDescription(titleEl) {
     const desc = titleEl.nextElementSibling;
     if (desc.style.display === "block") {
