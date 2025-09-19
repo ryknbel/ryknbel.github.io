@@ -34,27 +34,41 @@
       border-radius: 2px;
     }
 
-    /* Fullscreen menu overlay */
+    /* Fullscreen menu overlay (hidden by default) */
     .menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(99, 87, 80, .75);
+      background-color: rgba(99, 87, 80, .95);
       color: white;
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 1000;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
+
+    /* When open */
+    .menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
     .menu-overlay a {
       color: white;
       font-size: 2em;
       text-decoration: none;
       margin: 15px 0;
     }
+
     .close-menu {
       position: absolute;
       top: 20px;
@@ -131,10 +145,10 @@
 <!-- Menu overlay -->
 <div class="menu-overlay" id="menu">
   <div class="close-menu" onclick="toggleMenu(false)">✕</div>
-  <a href="https://ryknbel.github.io/">main</a>
-  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" target="_blank">spotify</a>
-  <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw" target="_blank">youtube chevelle</a>
-  <a href="https://ryknbel.com/gallery.html" target="_blank">drawings</a>
+  <a href="https://ryknbel.github.io/" onclick="toggleMenu(false)">main</a>
+  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" onclick="toggleMenu(false)">spotify</a>
+  <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw" onclick="toggleMenu(false)">youtube chevelle</a>
+  <a href="https://ryknbel.com/gallery.html" onclick="toggleMenu(false)">drawings</a>
 </div>
 
 <!-- Page header -->
@@ -170,7 +184,12 @@
 
 <script>
   function toggleMenu(show) {
-    document.getElementById('menu').style.display = show ? 'flex' : 'none';
+    const menu = document.getElementById('menu');
+    if (show) {
+      menu.classList.add('open');
+    } else {
+      menu.classList.remove('open');
+    }
   }
 
   function toggleDescription(button) {
