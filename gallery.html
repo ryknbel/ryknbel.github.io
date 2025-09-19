@@ -12,10 +12,11 @@
       background: #f9f9f9;
       color: #333;
     }
-        /* Hamburger icon */
+
+    /* Hamburger icon */
     .menu-icon {
       position: fixed;
-      top: 50px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1001;
@@ -93,20 +94,6 @@
       margin: 15px 0 10px;
     }
 
-    .stripe-link {
-      display: inline-block;
-      margin: 10px 0;
-      padding: 10px 18px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    .stripe-link:hover {
-      background: #444;
-    }
-
     .description {
       display: none;
       margin-top: 10px;
@@ -133,13 +120,15 @@
   </style>
 </head>
 <body>
+
 <!-- Hamburger menu button -->
-  <div class="hero-wrapper">
-  <div class="menu-icon" onclick="toggleMenu(true)">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<div class="menu-icon" onclick="toggleMenu(true)">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Menu overlay -->
 <div class="menu-overlay" id="menu">
   <div class="close-menu" onclick="toggleMenu(false)">✕</div>
   <a href="https://ryknbel.github.io/">main</a>
@@ -147,56 +136,54 @@
   <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw" target="_blank">youtube chevelle</a>
   <a href="https://ryknbel.com/gallery.html" target="_blank">drawings</a>
 </div>
-<div class="hero-wrapper">
-  <div class="menu-icon" onclick="toggleMenu(true)">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <h1 style="text-align:center; padding:20px 0;">Rȳknbĕl Gallery</h1>
 
-  <div class="gallery">
+<!-- Page header -->
+<h1 style="text-align:center; padding:70px 0 20px;">Rȳknbĕl Gallery</h1>
 
-    <!-- Example Art Item -->
-    <div class="art-item">
-      <a href="https://ryknbel.com/IMG_4207.jpeg" target="_blank">
-        <img src="https://ryknbel.com/IMG_4207.jpeg" alt="Artwork 1">
-      </a>
-      <div class="art-title">Face Fears</div>
-      
-      <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
-      <div class="description">
-        This is an original 8x10, unfinished ink drawing. No repreductions will be made.
-      </div>
-      <a href="https://payhip.com/b/Q8ThP" class="payhip-buy-button" data-theme="grey" data-product="Q8ThP">ship it</a>
-    </div>
-  </div>
-
-    <!-- Duplicate more .art-item blocks for additional artwork -->
+<!-- Gallery -->
+<div class="gallery">
+  <!-- Example Art Item -->
   <div class="art-item">
-      <a href="https://ryknbel.com/trucktown%20.heic" target="_blank">
-        <img src="https://ryknbel.com/trucktown%20.heic" alt="Artwork 1">
-      </a>
-      <div class="art-title">Trucktown</div>
-      
-      <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
-      <div class="description">
-        This is a little unfinished pencil drawing. Unavailable.
-      </div>
+    <a href="https://ryknbel.com/IMG_4207.jpeg" target="_blank">
+      <img src="https://ryknbel.com/IMG_4207.jpeg" alt="Artwork 1">
+    </a>
+    <div class="art-title">Face Fears</div>
+    <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
+    <div class="description">
+      This is an original 8x10, unfinished ink drawing. No reproductions will be made.
     </div>
+    <a href="https://payhip.com/b/Q8ThP" class="payhip-buy-button" data-theme="grey" data-product="Q8ThP">ship it</a>
+  </div>
 
-  <script>
-    function toggleDescription(button) {
-      const desc = button.nextElementSibling;
-      if (desc.style.display === "block") {
-        desc.style.display = "none";
-        button.textContent = "more";
-      } else {
-        desc.style.display = "block";
-        button.textContent = "less";
-      }
+  <!-- Another item -->
+  <div class="art-item">
+    <a href="https://ryknbel.com/trucktown%20.heic" target="_blank">
+      <img src="https://ryknbel.com/trucktown%20.heic" alt="Artwork 2">
+    </a>
+    <div class="art-title">Trucktown</div>
+    <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
+    <div class="description">
+      This is a little unfinished pencil drawing. Unavailable.
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMenu(show) {
+    document.getElementById('menu').style.display = show ? 'flex' : 'none';
+  }
+
+  function toggleDescription(button) {
+    const desc = button.nextElementSibling;
+    if (desc.style.display === "block") {
+      desc.style.display = "none";
+      button.textContent = "more";
+    } else {
+      desc.style.display = "block";
+      button.textContent = "less";
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
