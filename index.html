@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ryknbel</title>
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryknbel Gallery</title>
   <style>
     body {
-      background-color: rgba(99, 87, 80, .22);
-      color: black;
       font-family: courier;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      background: #f9f9f9;
+      color: #333;
     }
-    
+
     /* Hamburger icon */
     .menu-icon {
       position: fixed;
-      top: 50px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1001;
@@ -36,27 +34,41 @@
       border-radius: 2px;
     }
 
-    /* Fullscreen menu overlay */
+    /* Fullscreen menu overlay (hidden by default) */
     .menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(99, 87, 80, .75);
+      background-color: rgba(99, 87, 80, .95);
       color: white;
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 1000;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
+
+    /* When open */
+    .menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
     .menu-overlay a {
       color: white;
       font-size: 2em;
       text-decoration: none;
       margin: 15px 0;
     }
+
     .close-menu {
       position: absolute;
       top: 20px;
@@ -65,181 +77,132 @@
       cursor: pointer;
     }
 
-    /* Main content styles */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin: auto;
-  max-width: 1000px;
-  padding: 10px 20px 40px 20px;
-}
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1400px;
+      margin: auto;
+    }
 
-    .container img {
-      width: 256px;
-      height: auto;
-      border-radius: 12px;
+    .art-item {
+      background: #fff;
+      border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      padding: 20px;
+      text-align: center;
     }
 
-    .text {
-  margin-left: 0;
-  text-align: center;
-  max-width: 600px;
-}
+    .art-item img {
+      width: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .art-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 15px 0 10px;
+    }
+
+    .description {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95em;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: #0077cc;
+      cursor: pointer;
+      font-size: 0.95em;
+      margin-top: 8px;
+    }
 
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .text {
-        margin-left: 0;
-        text-align: center;
+      .gallery {
+        padding: 20px;
+        gap: 20px;
       }
     }
-    .release{
-  margin-top: 80px;
-}
-.release img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-
-.release {
-  flex: 0 1 300px; /* This allows 2-3 per row depending on screen */
-}
-
-.release {
-  flex: 0 1 300px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 35px; /* space for the hamburger */
-}
-
-.hero-wrapper h1 {
-  margin-bottom: 10px;
-  font-size: 2em;
-}
-
-.hero-image {
-  margin-top: 0px;
-}
-
-.hero-image img {
-  width: 250px;
-  display: block;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-}
-
-
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form img[alt=""] {
-  display: none;
-}
-
-
-    @media (max-width: 768px) {
-    .menu-icon {
-      top: 30px;
-      width: 25px;
-      height: 18px;
-    }
-    .menu-overlay a {
-      font-size: 1.5em;
-    }
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  background: #000;
-  border-radius: 8px;
-}
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-      
   </style>
 </head>
 <body>
 
-  <!-- Hamburger menu button -->
-  <div class="hero-wrapper">
-  <div class="menu-icon" onclick="toggleMenu(true)">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<!-- Hamburger menu button -->
+<div class="menu-icon" onclick="toggleMenu(true)">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Menu overlay -->
 <div class="menu-overlay" id="menu">
   <div class="close-menu" onclick="toggleMenu(false)">✕</div>
-  <a href="https://ryknbel.github.io/">main</a>
-  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" target="_blank">spotify</a>
-  <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw" target="_blank">youtube chevelle</a>
-  <a href="https://ryknbel.com/gallery.html" target="_blank">drawings</a>
+  <a href="https://ryknbel.github.io/" onclick="toggleMenu(false)">main</a>
+  <a href="https://open.spotify.com/artist/0HOBwf3NhPWTcZi8ie7T0W" onclick="toggleMenu(false)">spotify</a>
+  <a href="https://www.youtube.com/channel/UCmwM8jGHyb6T6FqrOVHxNNw" onclick="toggleMenu(false)">youtube chevelle</a>
+  <a href="https://ryknbel.com/gallery.html" onclick="toggleMenu(false)">drawings</a>
 </div>
-<div class="hero-wrapper">
-  <div class="menu-icon" onclick="toggleMenu(true)">
-    <span></span>
-    <span></span>
-    <span></span>
+
+<!-- Page header -->
+<h1 style="text-align:center; padding:70px 0 20px;">Rȳknbĕl Gallery</h1>
+
+<!-- Gallery -->
+<div class="gallery">
+  <!-- Example Art Item -->
+  <div class="art-item">
+    <a href="https://ryknbel.com/IMG_4207.jpeg" target="_blank">
+      <img src="https://ryknbel.com/IMG_4207.jpeg" alt="Artwork 1">
+    </a>
+    <div class="art-title">Face Fears</div>
+    <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
+    <div class="description">
+      This is an original 8x10, unfinished ink drawing. No reproductions will be made.
+    </div>
+    <a href="https://payhip.com/b/Q8ThP" class="payhip-buy-button" data-theme="grey" data-product="Q8ThP">ship it</a>
   </div>
 
-  <h1>I AM Rȳknbĕl</h1>
-
-<div class="container">
-  <div class="text">
-      this is an original 8" X 10"<br>ink drawing<br>it's an unfinished drawing<br>
-            i love you<br>buy it<br>i'll send it to you<br>
-      <div style="margin: 0;">
-        <span style="font-size: 36px; font-weight: bold;">face fears</span>
-      </div>
-<a href="https://buy.stripe.com/cNi3cxenF7UG9W93em9MY00?locale=en&__embed_source=buy_btn_1S3MT0QqvUxX9dztXKU1yfa6" target="_blank">
-  <img src="https://ryknbel.com/IMG_4208.jpeg" />
- </a>
-
-
-  <div class="video-container">
-  <iframe 
-    src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_m7mWeppizKR3yiSk517GHRSC12LdT1m9A&si=QfK36Il-13Ju_oqI" 
-    title="YouTube playlist" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
+  <!-- Another item -->
+  <div class="art-item">
+    <a href="https://ryknbel.com/trucktown%20.heic" target="_blank">
+      <img src="https://ryknbel.com/trucktown%20.heic" alt="Artwork 2">
+    </a>
+    <div class="art-title">Trucktown</div>
+    <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
+    <div class="description">
+      This is a little unfinished pencil drawing. Unavailable.
+    </div>
+  </div>
 </div>
 
-
-
-    <!-- JavaScript for menu -->
-  <script>
-    function toggleMenu(show) {
-      document.getElementById('menu').style.display = show ? 'flex' : 'none';
+<script>
+  function toggleMenu(show) {
+    const menu = document.getElementById('menu');
+    if (show) {
+      menu.classList.add('open');
+    } else {
+      menu.classList.remove('open');
     }
-  </script>
+  }
+
+  function toggleDescription(button) {
+    const desc = button.nextElementSibling;
+    if (desc.style.display === "block") {
+      desc.style.display = "none";
+      button.textContent = "more";
+    } else {
+      desc.style.display = "block";
+      button.textContent = "less";
+    }
+  }
+</script>
+
 </body>
 </html>
