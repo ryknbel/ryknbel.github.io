@@ -203,7 +203,35 @@
       ...a little song I wrote just for shorts. I aim to write more in this style.
     </div>
   </div>
+<!-- Contact Tile -->
+<div class="art-item">
+  <div class="art-title">contact me</div>
+  <button class="toggle-btn" onclick="toggleDescription(this)">open form</button>
+  <div class="description">
+    <form id="contact-form" action="https://formsubmit.co/rybroca@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
 
+      <label>What is 2 + 3?</label>
+      <input type="text" name="captcha" pattern="5" required placeholder="Enter the answer">
+
+      <!-- Honeypot field -->
+      <input type="text" name="_honey" style="display:none">
+
+      <!-- Prevent default redirect -->
+      <input type="hidden" name="_next" value="">
+
+      <button type="submit">send</button>
+    </form>
+
+    <!-- Thank you message (hidden at first) -->
+    <div id="thank-you" style="display:none; font-size:1.2em; font-weight:bold; text-align:center; padding:20px;">
+      see you later!
+    </div>
+  </div>
+</div>
+  
 </div> <!-- end of gallery -->
  
 
@@ -228,6 +256,24 @@
     }
   }
 </script>
+  // Intercept form submit to show message
+const form = document.getElementById("contact-form");
+const thankYou = document.getElementById("thank-you");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // stop normal redirect
+
+  // Let FormSubmit process the form using Fetch
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+  }).then(response => {
+    form.style.display = "none";      // hide form
+    thankYou.style.display = "block"; // show message
+  }).catch(error => {
+    alert("Something went wrong. Please try again!");
+  });
+});
 
 </body>
 </html>
