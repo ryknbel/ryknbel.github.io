@@ -204,9 +204,10 @@
     </div>
   </div>
 <!-- Contact Tile -->
-<div class="art-item">
-  <div class="art-title">contact me</div>
-  <button class="toggle-btn" onclick="toggleDescription(this)">open form</button>
+<div class="art-item" id="contact-tile">
+  <div class="art-title" id="contact-title" style="cursor:pointer;" onclick="toggleDescription(this)">
+    contact me
+  </div>
   <div class="description">
     <form id="contact-form" action="https://formsubmit.co/rybroca@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -219,18 +220,50 @@
       <!-- Honeypot field -->
       <input type="text" name="_honey" style="display:none">
 
-      <!-- Prevent default redirect -->
+      <!-- Prevent redirect -->
       <input type="hidden" name="_next" value="">
 
       <button type="submit">send</button>
     </form>
 
-    <!-- Thank you message (hidden at first) -->
+    <!-- Thank you message -->
     <div id="thank-you" style="display:none; font-size:1.2em; font-weight:bold; text-align:center; padding:20px;">
       see you later!
     </div>
   </div>
 </div>
+
+<script>
+  function toggleDescription(titleEl) {
+    const desc = titleEl.nextElementSibling;
+    if (desc.style.display === "block") {
+      desc.style.display = "none";
+    } else {
+      desc.style.display = "block";
+    }
+  }
+
+  // Handle form submission
+  const form = document.getElementById("contact-form");
+  const thankYou = document.getElementById("thank-you");
+  const contactTitle = document.getElementById("contact-title");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // stop redirect
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+    }).then(response => {
+      form.style.display = "none";       // hide form
+      thankYou.style.display = "block";  // show thank-you
+      contactTitle.textContent = "see you later!"; // change title
+      contactTitle.style.cursor = "default"; // not clickable anymore
+    }).catch(error => {
+      alert("Something went wrong. Please try again!");
+    });
+  });
+</script>
   
 </div> <!-- end of gallery -->
  
@@ -256,24 +289,5 @@
     }
   }
 </script>
-  // Intercept form submit to show message
-const form = document.getElementById("contact-form");
-const thankYou = document.getElementById("thank-you");
-
-form.addEventListener("submit", function(event) {
-  event.preventDefault(); // stop normal redirect
-
-  // Let FormSubmit process the form using Fetch
-  fetch(form.action, {
-    method: "POST",
-    body: new FormData(form),
-  }).then(response => {
-    form.style.display = "none";      // hide form
-    thankYou.style.display = "block"; // show message
-  }).catch(error => {
-    alert("Something went wrong. Please try again!");
-  });
-});
-
 </body>
 </html>
