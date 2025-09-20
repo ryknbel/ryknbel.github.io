@@ -130,6 +130,25 @@
         padding: 20px;
         gap: 20px;
       }
+      /* Make the header tile stand out */
+.header-tile {
+  background: rgba(99, 87, 80, 0.15);
+  border: 2px solid rgba(99, 87, 80, 0.4);
+  padding: 40px 20px;
+}
+
+.header-tile .art-title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.header-tile .toggle-btn {
+  display: block;
+  margin: 10px auto;
+  font-size: 1em;
+}
     }
   </style>
 </head>
@@ -153,7 +172,20 @@
 </div>
 
 <!-- Page header -->
-<h1 style="text-align:center; padding:70px 0 20px;">Rȳknbĕl Am Busy</h1>
+<!-- Header Tile -->
+<div class="art-item header-tile" id="about-tile">
+  <div class="art-title">Rȳknbĕl Am Busy</div>
+  <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
+  <div class="description">
+    <img src="https://ryknbel.com/livingalbum.PNG" alt="About Image" style="width:100%; border-radius:8px; margin-bottom:15px;">
+    <p>
+      Hi, I’m Ryknbel. This space is a gallery of drawings, compositions, and
+      experiments in sound and image. “Am Busy” is both a reminder and a statement —
+      a snapshot of process rather than perfection.  
+      Thanks for visiting.
+    </p>
+  </div>
+</div>
 
 <!-- Gallery -->
 <div class="gallery">
