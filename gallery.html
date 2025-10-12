@@ -169,18 +169,51 @@
   </div>
 
   <!-- Another item -->
-  <div class="art-item">
-    <a href="https://ryknbel.com/IMG_4207.jpeg" target="_blank">
-      <img src="https://ryknbel.com/IMG_4207.jpeg" alt="Artwork 1">
-    </a>
-    <div class="art-title">Face Fears</div>
-    <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
-    <div class="description">
-      ...an original 8x10, unfinished ink drawing. No reproductions will be made.
-    </div>
+  <!-- Another item -->
+<div class="art-item">
+  <a href="https://ryknbel.com/IMG_4207.jpeg" target="_blank">
+    <img src="https://ryknbel.com/IMG_4207.jpeg" alt="Artwork 1">
+  </a>
+  <div class="art-title">Face Fears</div>
+  <button class="toggle-btn" onclick="toggleDescription(this)">more</button>
+
+  <div class="description" style="display:none;">
+    ...an original 8x10, unfinished ink drawing. No reproductions will be made.
+
+    <!-- Title above the contact form -->
+    <div style="margin-top:1em; font-weight:bold;">ship it</div>
+
+    <!-- Contact Form -->
+    <form action="https://formsubmit.co/rybroca@gmail.com" method="POST" style="margin-top:0.5em;">
+
+      <!-- Hidden Artwork Identifier -->
+      <input type="hidden" name="art_id" value="face-fears">
+
+      <!-- Contact Info -->
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <!-- Required Shipping Address -->
+      <textarea name="shipping_address" rows="2" placeholder="Shipping Address (Required)" required></textarea>
+
+      <!-- Optional Message -->
+      <textarea name="message" rows="3" placeholder="Your Message"></textarea>
+
+      <!-- Enable FormSubmit CAPTCHA -->
+      <input type="hidden" name="_captcha" value="true">
+
+      <!-- Honeypot field -->
+      <input type="text" name="_honey" style="display:none">
+
+      <!-- Redirect after success -->
+      <input type="hidden" name="_next" value="https://ryknbel.com/index.html">
+
+      <button type="submit">send</button>
+    </form>
+
     <a href="https://payhip.com/b/Q8ThP" class="payhip-buy-button" data-theme="grey" data-product="Q8ThP">ship it</a>
   </div>
-
+</div>
  <div class="art-item">
   <a href="https://ryknbel.com/trucktown%20.heic" target="_blank">
     <img src="https://ryknbel.com/trucktown%20.heic" alt="Artwork 2">
