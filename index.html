@@ -170,7 +170,61 @@
   flex: 1;
   min-width: 250px;      /* Ensures readable text even on smaller devices */
 }
-    
+    /* --- Header Tile Layout --- */
+.header-tile {
+  background: rgba(99, 87, 80, 0.15);
+  border: 2px solid rgba(99, 87, 80, 0.4);
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 80px auto 40px; /* push down from top so menu doesn’t overlap */
+}
+
+.header-tile .art-title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Flex layout for image + text */
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap; /* stack nicely on mobile */
+  margin-top: 20px;
+}
+
+.about-image {
+  width: 180px;         /* set max size */
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Override global .art-item img rules for header image only */
+.header-tile img.about-image {
+  width: 180px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* --- Menu placement fix --- */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;  /* move it to the top-right corner instead of center */
+  transform: none; /* remove translateX(-50%) */
+  z-index: 2000;
+}
   </style>
 </head>
 <body>
@@ -202,8 +256,8 @@
       <img src="https://ryknbel.com/livingalbum.PNG" alt="About Image" class="about-image">
       <div class="about-text">
         <p>
-          Hi, I’m Ryknbel (Ryan Campbell—get it?). This space is a gallery of drawings, compositions, and
-          and connection. “Am Busy” is both a reminder and a statement —
+          Hi, I’m Ryknbel (Ryan Campbell—get it?). This space is a gallery of drawings, compositions,
+          and experiments in sound and connection. “Am Busy” is both a reminder and a statement —
           a snapshot of the process of perfection.  
           Thanks for visiting.
         </p>
