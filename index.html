@@ -150,6 +150,27 @@
   font-size: 1em;
 }
     }
+/* Limit image size and align layout */
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap; /* Keeps it responsive on smaller screens */
+}
+
+.about-image {
+  width: 200px;          /* Fixed display width */
+  max-width: 100%;       /* Ensures it never overflows container */
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;        /* Prevents image from shrinking */
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;      /* Ensures readable text even on smaller devices */
+}
+    
   </style>
 </head>
 <body>
